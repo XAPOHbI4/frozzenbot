@@ -1,43 +1,22 @@
-name: Deploy to Production
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.8
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          cd /var/www/frozenbot-project
-          git pull origin main
-
-          # Backend update
-          source venv/bin/activate
-          pip install -r backend/requirements.txt
-
-          # Frontend rebuild
-          cd frontend/admin && npm ci && npm run build
-          cd ../webapp && npm ci && npm run build
-
-          # Database migrations
-          cd ../../backend
-          alembic upgrade head
-
-          # Restart services
-          sudo systemctl restart frozenbot-api
-          sudo systemctl restart frozenbot-bot
-          sudo systemctl reload nginx
-
-          echo "✅ Deployment completed!"
+name: Deploy to Production 
+ 
+on: 
+  push: 
+    branches: [ main ] 
+  workflow_dispatch: 
+ 
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest 
+ 
+    steps: 
+    - name: Deploy to server 
+      uses: appleboy/ssh-action@v0.1.8 
+      with: 
+        host: ${{ secrets.HOST }} 
+        username: ${{ secrets.USERNAME }} 
+        password: ${{ secrets.PASSWORD }} 
+        script: | 
+          cd /var/www/frozenbot-project 
+          git pull origin main 
+          echo "Deployment completed!" 
