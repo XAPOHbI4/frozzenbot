@@ -1,0 +1,5 @@
+@assign teamlead "C:\Users\XAPOHbI4\Desktop\Замороженная еда\frozenbot-project\agents\teamlead_context.md"
+@assign backend "C:\Users\XAPOHbI4\Desktop\Замороженная еда\frozenbot-project\agents\backend_context.md"
+@assign frontend "C:\Users\XAPOHbI4\Desktop\Замороженная еда\frozenbot-project\agents\frontend_context.md"
+
+"C:\Users\XAPOHbI4\Desktop\Замороженная еда\frozenbot-project\shared\team_sync.md"

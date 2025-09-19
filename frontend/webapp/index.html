@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ Замороженная еда</title>
+    <meta name="description" content="Каталог замороженных блюд высокого качества">
+
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Meta tags for better mobile experience -->
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Замороженная еда">
+
+    <!-- Disable zoom on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/images/placeholder-product.jpg" as="image">
+</head>
+<body>
+    <!-- React root -->
+    <div id="root"></div>
+
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+        <div style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            font-family: Inter, system-ui, sans-serif;
+        ">
+            <h1>🍽️ Замороженная еда</h1>
+            <p>Для работы приложения необходимо включить JavaScript.</p>
+            <p>Please enable JavaScript to use this application.</p>
+        </div>
+    </noscript>
+
+    <!-- React app script -->
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

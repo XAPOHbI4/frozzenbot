@@ -1,0 +1,161 @@
+/**
+ * Main App Component Styles
+ */
+
+.app {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Loading State */
+.app--loading {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.loading-container {
+  padding: var(--spacing-8);
+  max-width: var(--max-width-sm);
+  margin: 0 auto;
+}
+
+.loading-title {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin: var(--spacing-6) 0 var(--spacing-2);
+}
+
+.loading-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* Error State */
+.app--error {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-6);
+}
+
+.error-container {
+  max-width: var(--max-width-sm);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.error-icon {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-4);
+}
+
+.error-title {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-2);
+}
+
+.error-message {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-6);
+}
+
+.error-retry-btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-3) var(--spacing-6);
+  border-radius: var(--radius);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--transition);
+}
+
+.error-retry-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.error-retry-btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .loading-container,
+  .error-container {
+    padding: var(--spacing-6);
+    margin: 0 var(--spacing-4);
+  }
+
+  .loading-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .error-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .error-icon {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Telegram WebApp specific adjustments */
+.tg-theme {
+  /* Use Telegram's theme colors when available */
+  --color-background: var(--tg-theme-bg-color, var(--color-background));
+  --color-text: var(--tg-theme-text-color, var(--color-text));
+  --color-primary: var(--tg-theme-button-color, var(--color-primary));
+}
+
+/* Safe area handling for iOS */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .app {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Animations for page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: white;
+    color: black;
+  }
+
+  .loading-container,
+  .error-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

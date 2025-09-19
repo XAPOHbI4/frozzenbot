@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:chatlabs.ru)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(pip install:*)",
+      "WebSearch",
+      "Bash(ping:*)",
+      "Bash(nslookup:*)",
+      "Bash(ssh:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(systemctl status:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
